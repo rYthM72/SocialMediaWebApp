@@ -147,3 +147,4 @@ G:\Dotnet\SocialMediaWebApp\SocialMediaWebApp\bin\Debug\net8.0\Microsoft.AspNetC
 G:\Dotnet\SocialMediaWebApp\SocialMediaWebApp\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
 G:\Dotnet\SocialMediaWebApp\SocialMediaWebApp\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
 G:\Dotnet\SocialMediaWebApp\SocialMediaWebApp\bin\Debug\net8.0\System.ClientModel.dll
+G:\Dotnet\SocialMediaWebApp\SocialMediaWebApp\obj\Debug\net8.0\SocialMediaWebApp.sourcelink.json

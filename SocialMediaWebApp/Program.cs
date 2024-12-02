@@ -26,11 +26,9 @@ builder.Services.AddIdentity<SocialMediaUser, IdentityRole>(options =>
     options.Password.RequireDigit = true;
     options.Password.RequireLowercase = true;
     options.Password.RequireUppercase = true;
-    options.Password.RequireNonAlphanumeric = true;
-    options.Password.RequiredLength = 12;
-
+    options.Password.RequiredLength = 5;
 })
-.AddEntityFrameworkStores<ApplicationDbContext>();//Add EntityFrameworKStores enables Identity Framework to store user and role information in relational database from entityframework.
+.AddEntityFrameworkStores<ApplicationDbContext>(); //Add EntityFrameworKStores enables Identity Framework to store user and role information in relational database from entityframework.
 
 builder.Services.AddAuthentication(options =>
 {
@@ -55,7 +53,7 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
-builder.Services.AddScoped<IUserPostContentRepository,UserPostContentRepository>();
+builder.Services.AddScoped<IUserPostContentRepository, UserPostContentRepository>();
 
 var app = builder.Build();
 

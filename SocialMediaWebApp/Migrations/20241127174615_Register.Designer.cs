@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SocialMediaWebApp.Data;
 
@@ -11,9 +12,11 @@ using SocialMediaWebApp.Data;
 namespace SocialMediaWebApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241127174615_Register")]
+    partial class Register
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,13 +54,13 @@ namespace SocialMediaWebApp.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "483ea669-35bb-4bd3-8446-6f6f86d138ab",
+                            Id = "d24ae465-4a1c-4254-a816-a3c2e18fa26f",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "f68d4a3f-4dc6-4713-9749-0524191acd10",
+                            Id = "f48403b1-3485-4f7b-9edd-428989c994e3",
                             Name = "User",
                             NormalizedName = "USER"
                         });

@@ -1,5 +1,21 @@
 [
   {
+    "ContainingType": "SocialMediaWebApp.Controllers.AccountController",
+    "Method": "Register",
+    "RelativePath": "api/Account/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "registerDto",
+        "Type": "SocialMediaWebApp.Dtos.Account.RegisterDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "SocialMediaWebApp.Controllers.UserPostContentController",
     "Method": "GetAllPosts",
     "RelativePath": "api/UserPostContent",
