@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SocialMediaWebApp.Data;
 using SocialMediaWebApp.Dtos.UserPostContent;
@@ -10,6 +11,7 @@ namespace SocialMediaWebApp.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class UserPostContentController : Controller
     {
         private readonly IUserPostContentRepository _userPosts;
