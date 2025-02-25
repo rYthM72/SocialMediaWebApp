@@ -14,6 +14,9 @@ namespace SocialMediaWebApp.Models
         public DateTime CreatedOn { get; set; } = DateTime.Now;
         public DateTime ModifiedOn { get; set; } = DateTime.Now;
 
-        public List<ContentComment> Comments { get; set; }
+        public List<ContentComment> Comments { get; set; } = new List<ContentComment>();
+        public List<Portfolio> Portfolios { get; set; } = new List<Portfolio>();
+        public List<UserGroup> UserGroups { get; set; } = new List<UserGroup>();
+
     }
 }

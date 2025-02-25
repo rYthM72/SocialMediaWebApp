@@ -37,11 +37,11 @@ namespace SocialMediaWebApp.Controllers
                     return BadRequest("Username can only contain letters or digits.");
                 }
 
-                var appUser = new SocialMediaUser
-                {
-                    UserName = registerDto.UserName,
-                    Email = registerDto.Email
-                };
+                var appUser = new SocialMediaUser();
+
+                appUser.UserName = registerDto.UserName;
+                    appUser.Email = registerDto.Email;
+                
                  var createdUser = await _userManager.CreateAsync(appUser, registerDto.Password);
                 Console.WriteLine(appUser);
                 if (createdUser.Succeeded)
@@ -60,10 +60,9 @@ namespace SocialMediaWebApp.Controllers
                 {
                     return StatusCode(500, createdUser.Errors);
                 }
-
             }   
             catch (Exception ex) {
-                return StatusCode(500, ex);
+                return StatusCode(500, ex.Message);
             }
         }
 

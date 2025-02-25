@@ -26,7 +26,12 @@ namespace SocialMediaWebApp.Repository
         public async Task<UserPostContentDto> GetPostByIdAsync(int id)
         {
             var posts = await _context.UserPostContents.FirstOrDefaultAsync(a => id == a.ContentId);
-            return posts.ToUserPostContentDto();
+            if(posts == null)
+            {
+                throw new Exception("The post doesnot exists");
+            }
+            UserPostContentDto postDto = posts.ToUserPostContentDto();
+            return postDto;
         }
 
         public async Task CreateUserPostContent(CreateUserPostContentDto postContent)
@@ -40,17 +45,20 @@ namespace SocialMediaWebApp.Repository
 
         public async Task UpdateUserPostContent(UpdateUserPostContentDto content)
         {
-            UserPostContent postContent = new UserPostContent();
             var posts = _context.UserPostContents.FirstOrDefault(x => x.ContentId == content.ContentId);
-            postContent.Title = content.Title;
-            postContent.Content = content.Content;
-            postContent.ModifiedOn = DateTime.Now;
+            posts.Title = content.Title;
+            posts.Content = content.Content;
+            posts.ModifiedOn = DateTime.Now;
             await _context.SaveChangesAsync();
         }
 
         public async Task DeleteUserPostContent(int id)
         {
             var posts = _context.UserPostContents.FirstOrDefault(x => x.ContentId == id);
+            if (posts == null)
+            {
+                throw new Exception("The post doesnot exists");
+            }
             _context.UserPostContents.Remove(posts);
             await _context.SaveChangesAsync();
         }

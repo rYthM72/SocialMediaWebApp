@@ -4,6 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using SocialMediaWebApp.Data;
+using SocialMediaWebApp.GlobalException;
+using SocialMediaWebApp.Hubs;
 using SocialMediaWebApp.Interfaces;
 using SocialMediaWebApp.Models;
 using SocialMediaWebApp.Repository;
@@ -11,7 +13,19 @@ using SocialMediaWebApp.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddAutoMapper(typeof(Program));
 // Add services to the container.
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowSpecificOrigin", policy =>
+    {
+        policy.WithOrigins("http://localhost:9000") // Frontend origin
+              .AllowAnyMethod()
+              .AllowAnyHeader()
+              .AllowCredentials(); // Optional, if you're using cookies or auth headers
+    });
+});
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -44,7 +58,7 @@ builder.Services.AddSwaggerGen(option =>
         }
     });
 });
-
+builder.Services.AddSignalR();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
@@ -53,7 +67,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddIdentity<SocialMediaUser, IdentityRole>(options =>
 {
     options.Password.RequireDigit = true;
-    options.Password.RequireLowercase = true;
+    options.Password.RequireLowercase = true;   
     options.Password.RequireUppercase = true;
     options.Password.RequiredLength = 5;
 })
@@ -84,8 +98,12 @@ builder.Services.AddAuthentication(options =>
 
 builder.Services.AddScoped<IUserPostContentRepository, UserPostContentRepository>();
 builder.Services.AddScoped<ITokenService, TokenService>();
+builder.Services.AddScoped<IUserGroupRepository, UserGroupRepository>();
 
 var app = builder.Build();
+
+app.UseMiddleware<ExceptionMiddleWare>();
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -99,8 +117,10 @@ app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.UseAuthorization();
+
+app.UseCors("AllowSpecificOrigin");
 
 app.MapControllers();
+app.MapHub<NotificationHub>("/notification");
 
 app.Run();

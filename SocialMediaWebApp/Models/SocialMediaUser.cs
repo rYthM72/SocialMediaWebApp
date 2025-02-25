@@ -5,10 +5,8 @@ namespace SocialMediaWebApp.Models
 {
     public class SocialMediaUser : IdentityUser
     {
-        [Key]
-        public int UserId { get; set; }
-        public override string UserName { get; set; } = string.Empty;
-        public override string Email { get; set; } = string.Empty;
-        public string Password { get; set; } = string.Empty;
+        public List<Portfolio> Portfolios { get; set; } = new List<Portfolio>();
+        public List<UserGroup> UserGroups { get; set; } = new List<UserGroup>();
+
     }
 }

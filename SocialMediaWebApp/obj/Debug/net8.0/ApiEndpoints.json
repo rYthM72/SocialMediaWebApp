@@ -32,45 +32,77 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "SocialMediaWebApp.Controllers.UserPostContentController",
-    "Method": "GetAllPosts",
-    "RelativePath": "api/UserPostContent",
+    "ContainingType": "SocialMediaWebApp.Controllers.UserGroupController",
+    "Method": "GetById",
+    "RelativePath": "api/UserGroup/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "SocialMediaWebApp.Controllers.UserPostContentController",
-    "Method": "PostUserContent",
-    "RelativePath": "api/UserPostContent",
+    "ContainingType": "SocialMediaWebApp.Controllers.UserGroupController",
+    "Method": "Create",
+    "RelativePath": "api/UserGroup/create",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "createUserPost",
-        "Type": "SocialMediaWebApp.Dtos.UserPostContent.CreateUserPostContentDto",
+        "Name": "groupDetailsDto",
+        "Type": "SocialMediaWebApp.Dtos.UserGroup.GroupCreateDto",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "SocialMediaWebApp.Controllers.UserPostContentController",
-    "Method": "UpdateUserContent",
-    "RelativePath": "api/UserPostContent",
+    "ContainingType": "SocialMediaWebApp.Controllers.UserGroupController",
+    "Method": "Delete",
+    "RelativePath": "api/UserGroup/delete/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SocialMediaWebApp.Controllers.UserGroupController",
+    "Method": "Update",
+    "RelativePath": "api/UserGroup/edit",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "updateUserPost",
-        "Type": "SocialMediaWebApp.Dtos.UserPostContent.UpdateUserPostContentDto",
+        "Name": "groupDetailsDto",
+        "Type": "SocialMediaWebApp.Dtos.UserGroup.GroupUpdateDto",
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SocialMediaWebApp.Controllers.UserGroupController",
+    "Method": "GetAll",
+    "RelativePath": "api/UserGroup/list",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
@@ -91,8 +123,24 @@
   },
   {
     "ContainingType": "SocialMediaWebApp.Controllers.UserPostContentController",
+    "Method": "PostUserContent",
+    "RelativePath": "api/UserPostContent/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "createUserPost",
+        "Type": "SocialMediaWebApp.Dtos.UserPostContent.CreateUserPostContentDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SocialMediaWebApp.Controllers.UserPostContentController",
     "Method": "DeleteUserContent",
-    "RelativePath": "api/UserPostContent/{id}",
+    "RelativePath": "api/UserPostContent/delete/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -100,6 +148,32 @@
       {
         "Name": "id",
         "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SocialMediaWebApp.Controllers.UserPostContentController",
+    "Method": "GetAllPosts",
+    "RelativePath": "api/UserPostContent/list",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SocialMediaWebApp.Controllers.UserPostContentController",
+    "Method": "UpdateUserContent",
+    "RelativePath": "api/UserPostContent/update",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "updateUserPost",
+        "Type": "SocialMediaWebApp.Dtos.UserPostContent.UpdateUserPostContentDto",
         "IsRequired": true
       }
     ],

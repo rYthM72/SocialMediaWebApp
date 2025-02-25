@@ -51,13 +51,13 @@ namespace SocialMediaWebApp.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "483ea669-35bb-4bd3-8446-6f6f86d138ab",
+                            Id = "58ba4c47-e549-47de-a431-54fab080bce5",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "f68d4a3f-4dc6-4713-9749-0524191acd10",
+                            Id = "8c2b5f76-91d7-40a6-8ee3-d6815bb3ae42",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -197,6 +197,21 @@ namespace SocialMediaWebApp.Migrations
                     b.ToTable("ContentComments");
                 });
 
+            modelBuilder.Entity("SocialMediaWebApp.Models.Portfolio", b =>
+                {
+                    b.Property<string>("SocialMediaUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("UserPostContentId")
+                        .HasColumnType("int");
+
+                    b.HasKey("SocialMediaUserId", "UserPostContentId");
+
+                    b.HasIndex("UserPostContentId");
+
+                    b.ToTable("Portfolios");
+                });
+
             modelBuilder.Entity("SocialMediaWebApp.Models.SocialMediaUser", b =>
                 {
                     b.Property<string>("Id")
@@ -210,7 +225,6 @@ namespace SocialMediaWebApp.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
@@ -231,10 +245,6 @@ namespace SocialMediaWebApp.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("PasswordHash")
                         .HasColumnType("nvarchar(max)");
 
@@ -250,11 +260,7 @@ namespace SocialMediaWebApp.Migrations
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
                     b.Property<string>("UserName")
-                        .IsRequired()
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
@@ -269,6 +275,36 @@ namespace SocialMediaWebApp.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+                });
+
+            modelBuilder.Entity("SocialMediaWebApp.Models.UserGroup", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("PostId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PostId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserGroups");
                 });
 
             modelBuilder.Entity("SocialMediaWebApp.Models.UserPostContent", b =>
@@ -356,9 +392,54 @@ namespace SocialMediaWebApp.Migrations
                         .HasForeignKey("UserPostContentContentId");
                 });
 
+            modelBuilder.Entity("SocialMediaWebApp.Models.Portfolio", b =>
+                {
+                    b.HasOne("SocialMediaWebApp.Models.SocialMediaUser", "SocialMediaUser")
+                        .WithMany("Portfolios")
+                        .HasForeignKey("SocialMediaUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SocialMediaWebApp.Models.UserPostContent", "UserPostContent")
+                        .WithMany("Portfolios")
+                        .HasForeignKey("UserPostContentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("SocialMediaUser");
+
+                    b.Navigation("UserPostContent");
+                });
+
+            modelBuilder.Entity("SocialMediaWebApp.Models.UserGroup", b =>
+                {
+                    b.HasOne("SocialMediaWebApp.Models.UserPostContent", "Content")
+                        .WithMany("UserGroups")
+                        .HasForeignKey("PostId");
+
+                    b.HasOne("SocialMediaWebApp.Models.SocialMediaUser", "User")
+                        .WithMany("UserGroups")
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("Content");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("SocialMediaWebApp.Models.SocialMediaUser", b =>
+                {
+                    b.Navigation("Portfolios");
+
+                    b.Navigation("UserGroups");
+                });
+
             modelBuilder.Entity("SocialMediaWebApp.Models.UserPostContent", b =>
                 {
                     b.Navigation("Comments");
+
+                    b.Navigation("Portfolios");
+
+                    b.Navigation("UserGroups");
                 });
 #pragma warning restore 612, 618
         }

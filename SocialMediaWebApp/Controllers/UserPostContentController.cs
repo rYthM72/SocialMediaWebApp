@@ -15,26 +15,38 @@ namespace SocialMediaWebApp.Controllers
     public class UserPostContentController : Controller
     {
         private readonly IUserPostContentRepository _userPosts;
-        public UserPostContentController(IUserPostContentRepository userPosts)
+        private readonly ILogger<UserPostContentController> _logger;
+        public UserPostContentController(IUserPostContentRepository userPosts, ILogger<UserPostContentController> logger)
         {
             _userPosts = userPosts;
+            _logger = logger;
         }
-
         [HttpGet]
+        [Route("list")]
         public async Task<IActionResult> GetAllPosts()
         {
             var posts = await _userPosts.GetAllPostsAsync();
             return Ok(posts);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet]
+        [Route("{id}")]
         public async Task<IActionResult> GetPostById([FromRoute] int id)
         {
-            var posts = await _userPosts.GetPostByIdAsync(id);
-            return Ok(posts);
+            try
+            {
+                var posts = await _userPosts.GetPostByIdAsync(id);
+                return Ok(posts);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPost]
+        [Route("create")]
         public async Task<IActionResult> PostUserContent([FromBody] CreateUserPostContentDto createUserPost)
         {
             await _userPosts.CreateUserPostContent(createUserPost);
@@ -42,13 +54,16 @@ namespace SocialMediaWebApp.Controllers
         }
 
         [HttpPut]
+        [Route("update")]
+
         public async Task<IActionResult> UpdateUserContent(UpdateUserPostContentDto updateUserPost)
         {
             await _userPosts.UpdateUserPostContent(updateUserPost);
             return Ok("The post has been updated");
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete]
+        [Route("delete/{id}")]
         public async Task<IActionResult> DeleteUserContent([FromRoute]int id)
         {
             await _userPosts.DeleteUserPostContent(id);
