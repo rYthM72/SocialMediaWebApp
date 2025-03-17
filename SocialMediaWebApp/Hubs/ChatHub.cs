@@ -9,5 +9,9 @@ namespace SocialMediaWebApp.Hubs
         {
             await this.Clients.All.SendAsync("ReceivedMessage", $"{Context.ConnectionId} has joined");
         }
+        public async Task SendMessage(string userId, string message)
+        {
+            await this.Clients.User(userId).SendAsync("ReceivedMessage", $"{message}");
+        }
     }
 }

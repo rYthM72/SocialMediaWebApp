@@ -32,6 +32,59 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "SocialMediaWebApp.Controllers.MessageController",
+    "Method": "SendMessageToUser",
+    "RelativePath": "api/Message/send/{userId}",
+    "HttpMethod": "",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "message",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SocialMediaWebApp.Controllers.PostVoteController",
+    "Method": "Upvote",
+    "RelativePath": "api/PostVote/upvote",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "postId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SocialMediaWebApp.Controllers.PostVoteController",
+    "Method": "GetVote",
+    "RelativePath": "api/PostVote/votecount",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "postId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "SocialMediaWebApp.Controllers.UserGroupController",
     "Method": "GetById",
     "RelativePath": "api/UserGroup/{id}",

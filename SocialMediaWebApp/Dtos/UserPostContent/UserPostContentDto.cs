@@ -8,8 +8,8 @@
     public class UserPostContentDto : CreateUserPostContentDto
     {
         public int ContentId { get; set; }
-        public DateTime CreatedOn { get; set; }
         public DateTime ModifiedOn { get; set; }
+        public DateTime CreatedOn { get; set; }
     }
     public class UpdateUserPostContentDto : CreateUserPostContentDto
     {

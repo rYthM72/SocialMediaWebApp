@@ -53,22 +53,6 @@ namespace SocialMediaWebApp.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "UserPostContents",
-                columns: table => new
-                {
-                    ContentId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Content = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_UserPostContents", x => x.ContentId);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -175,6 +159,28 @@ namespace SocialMediaWebApp.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "UserPostContents",
+                columns: table => new
+                {
+                    ContentId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Content = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatedById = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserPostContents", x => x.ContentId);
+                    table.ForeignKey(
+                        name: "FK_UserPostContents_AspNetUsers_CreatedById",
+                        column: x => x.CreatedById,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
                 name: "ContentComments",
                 columns: table => new
                 {
@@ -196,24 +202,24 @@ namespace SocialMediaWebApp.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Portfolios",
+                name: "PostUpvotes",
                 columns: table => new
                 {
-                    SocialMediaUserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    UserPostContentId = table.Column<int>(type: "int", nullable: false)
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    PostId = table.Column<int>(type: "int", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Portfolios", x => new { x.SocialMediaUserId, x.UserPostContentId });
+                    table.PrimaryKey("PK_PostUpvotes", x => new { x.PostId, x.UserId });
                     table.ForeignKey(
-                        name: "FK_Portfolios_AspNetUsers_SocialMediaUserId",
-                        column: x => x.SocialMediaUserId,
+                        name: "FK_PostUpvotes_AspNetUsers_UserId",
+                        column: x => x.UserId,
                         principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_Portfolios_UserPostContents_UserPostContentId",
-                        column: x => x.UserPostContentId,
+                        name: "FK_PostUpvotes_UserPostContents_PostId",
+                        column: x => x.PostId,
                         principalTable: "UserPostContents",
                         principalColumn: "ContentId",
                         onDelete: ReferentialAction.Cascade);
@@ -223,16 +229,15 @@ namespace SocialMediaWebApp.Migrations
                 name: "UserGroups",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    PostId = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PostId = table.Column<int>(type: "int", nullable: true),
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_UserGroups", x => x.Id);
+                    table.PrimaryKey("PK_UserGroups", x => new { x.PostId, x.UserId });
                     table.ForeignKey(
                         name: "FK_UserGroups_AspNetUsers_UserId",
                         column: x => x.UserId,
@@ -242,7 +247,8 @@ namespace SocialMediaWebApp.Migrations
                         name: "FK_UserGroups_UserPostContents_PostId",
                         column: x => x.PostId,
                         principalTable: "UserPostContents",
-                        principalColumn: "ContentId");
+                        principalColumn: "ContentId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.InsertData(
@@ -250,8 +256,8 @@ namespace SocialMediaWebApp.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "58ba4c47-e549-47de-a431-54fab080bce5", null, "Admin", "ADMIN" },
-                    { "8c2b5f76-91d7-40a6-8ee3-d6815bb3ae42", null, "User", "USER" }
+                    { "0a27199f-bbbc-443b-a375-928896360652", null, "User", "USER" },
+                    { "78df75a7-40a8-45ab-938c-93469825134a", null, "Admin", "ADMIN" }
                 });
 
             migrationBuilder.CreateIndex(
@@ -299,19 +305,19 @@ namespace SocialMediaWebApp.Migrations
                 column: "UserPostContentContentId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Portfolios_UserPostContentId",
-                table: "Portfolios",
-                column: "UserPostContentId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_UserGroups_PostId",
-                table: "UserGroups",
-                column: "PostId");
+                name: "IX_PostUpvotes_UserId",
+                table: "PostUpvotes",
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_UserGroups_UserId",
                 table: "UserGroups",
                 column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UserPostContents_CreatedById",
+                table: "UserPostContents",
+                column: "CreatedById");
         }
 
         /// <inheritdoc />
@@ -336,7 +342,7 @@ namespace SocialMediaWebApp.Migrations
                 name: "ContentComments");
 
             migrationBuilder.DropTable(
-                name: "Portfolios");
+                name: "PostUpvotes");
 
             migrationBuilder.DropTable(
                 name: "UserGroups");
@@ -345,10 +351,10 @@ namespace SocialMediaWebApp.Migrations
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "AspNetUsers");
+                name: "UserPostContents");
 
             migrationBuilder.DropTable(
-                name: "UserPostContents");
+                name: "AspNetUsers");
         }
     }
 }

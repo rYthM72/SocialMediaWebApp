@@ -12,8 +12,8 @@ using SocialMediaWebApp.Data;
 namespace SocialMediaWebApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250224120651_Init")]
-    partial class Init
+    [Migration("20250316114527_DownVotes")]
+    partial class DownVotes
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -54,13 +54,13 @@ namespace SocialMediaWebApp.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "58ba4c47-e549-47de-a431-54fab080bce5",
+                            Id = "465aeedd-20ca-4d7c-ad17-c32bd733a7d2",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "8c2b5f76-91d7-40a6-8ee3-d6815bb3ae42",
+                            Id = "69d26eb7-826c-4b98-953f-40552e36c638",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -200,19 +200,40 @@ namespace SocialMediaWebApp.Migrations
                     b.ToTable("ContentComments");
                 });
 
-            modelBuilder.Entity("SocialMediaWebApp.Models.Portfolio", b =>
+            modelBuilder.Entity("SocialMediaWebApp.Models.PostDownVote", b =>
                 {
-                    b.Property<string>("SocialMediaUserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("UserPostContentId")
+                    b.Property<int>("PostId")
                         .HasColumnType("int");
 
-                    b.HasKey("SocialMediaUserId", "UserPostContentId");
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
 
-                    b.HasIndex("UserPostContentId");
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
 
-                    b.ToTable("Portfolios");
+                    b.HasKey("PostId", "UserId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("PostDownVotes");
+                });
+
+            modelBuilder.Entity("SocialMediaWebApp.Models.PostUpvote", b =>
+                {
+                    b.Property<int>("PostId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
+                    b.HasKey("PostId", "UserId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("PostUpvotes");
                 });
 
             modelBuilder.Entity("SocialMediaWebApp.Models.SocialMediaUser", b =>
@@ -282,28 +303,23 @@ namespace SocialMediaWebApp.Migrations
 
             modelBuilder.Entity("SocialMediaWebApp.Models.UserGroup", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int?>("PostId")
                         .HasColumnType("int");
 
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("Id");
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.HasIndex("PostId");
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("PostId", "UserId");
 
                     b.HasIndex("UserId");
 
@@ -322,6 +338,10 @@ namespace SocialMediaWebApp.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("CreatedById")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
@@ -333,6 +353,8 @@ namespace SocialMediaWebApp.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ContentId");
+
+                    b.HasIndex("CreatedById");
 
                     b.ToTable("UserPostContents");
                 });
@@ -395,52 +417,92 @@ namespace SocialMediaWebApp.Migrations
                         .HasForeignKey("UserPostContentContentId");
                 });
 
-            modelBuilder.Entity("SocialMediaWebApp.Models.Portfolio", b =>
-                {
-                    b.HasOne("SocialMediaWebApp.Models.SocialMediaUser", "SocialMediaUser")
-                        .WithMany("Portfolios")
-                        .HasForeignKey("SocialMediaUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("SocialMediaWebApp.Models.UserPostContent", "UserPostContent")
-                        .WithMany("Portfolios")
-                        .HasForeignKey("UserPostContentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("SocialMediaUser");
-
-                    b.Navigation("UserPostContent");
-                });
-
-            modelBuilder.Entity("SocialMediaWebApp.Models.UserGroup", b =>
+            modelBuilder.Entity("SocialMediaWebApp.Models.PostDownVote", b =>
                 {
                     b.HasOne("SocialMediaWebApp.Models.UserPostContent", "Content")
-                        .WithMany("UserGroups")
-                        .HasForeignKey("PostId");
+                        .WithMany("DownVotes")
+                        .HasForeignKey("PostId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("SocialMediaWebApp.Models.SocialMediaUser", "User")
-                        .WithMany("UserGroups")
-                        .HasForeignKey("UserId");
+                        .WithMany("DownVotes")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
 
                     b.Navigation("Content");
 
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("SocialMediaWebApp.Models.PostUpvote", b =>
+                {
+                    b.HasOne("SocialMediaWebApp.Models.UserPostContent", "Content")
+                        .WithMany("Upvotes")
+                        .HasForeignKey("PostId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SocialMediaWebApp.Models.SocialMediaUser", "User")
+                        .WithMany("Upvotes")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Content");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("SocialMediaWebApp.Models.UserGroup", b =>
+                {
+                    b.HasOne("SocialMediaWebApp.Models.UserPostContent", "Content")
+                        .WithMany("UserGroups")
+                        .HasForeignKey("PostId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SocialMediaWebApp.Models.SocialMediaUser", "User")
+                        .WithMany("UserGroups")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Content");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("SocialMediaWebApp.Models.UserPostContent", b =>
+                {
+                    b.HasOne("SocialMediaWebApp.Models.SocialMediaUser", "SocialMediaUser")
+                        .WithMany("UserPostContents")
+                        .HasForeignKey("CreatedById")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("SocialMediaUser");
+                });
+
             modelBuilder.Entity("SocialMediaWebApp.Models.SocialMediaUser", b =>
                 {
-                    b.Navigation("Portfolios");
+                    b.Navigation("DownVotes");
+
+                    b.Navigation("Upvotes");
 
                     b.Navigation("UserGroups");
+
+                    b.Navigation("UserPostContents");
                 });
 
             modelBuilder.Entity("SocialMediaWebApp.Models.UserPostContent", b =>
                 {
                     b.Navigation("Comments");
 
-                    b.Navigation("Portfolios");
+                    b.Navigation("DownVotes");
+
+                    b.Navigation("Upvotes");
 
                     b.Navigation("UserGroups");
                 });

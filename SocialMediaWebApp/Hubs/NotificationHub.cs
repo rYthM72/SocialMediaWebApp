@@ -12,5 +12,6 @@ namespace SocialMediaWebApp.Hubs
         {
             await this.Clients.All.ReceiveNotification($"A new comment in your post {postTitle}");
         }
+
     }
 }

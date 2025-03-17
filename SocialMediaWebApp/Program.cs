@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Serilog;
 using SocialMediaWebApp.Data;
 using SocialMediaWebApp.GlobalException;
 using SocialMediaWebApp.Hubs;
@@ -64,6 +65,10 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
+//Serilog
+builder.Host.UseSerilog((context, loggerConfig) =>
+    loggerConfig.ReadFrom.Configuration(context.Configuration));
+
 builder.Services.AddIdentity<SocialMediaUser, IdentityRole>(options =>
 {
     options.Password.RequireDigit = true;
@@ -96,14 +101,18 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
+builder.Services.AddHttpContextAccessor();
+
+
 builder.Services.AddScoped<IUserPostContentRepository, UserPostContentRepository>();
 builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<IUserGroupRepository, UserGroupRepository>();
+builder.Services.AddScoped<IPostVoteRepository, PostVoteRepository>();
 
 var app = builder.Build();
 
-app.UseMiddleware<ExceptionMiddleWare>();
 
+app.UseMiddleware<ExceptionMiddleWare>();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -111,6 +120,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseDeveloperExceptionPage();
+
 
 app.UseHttpsRedirection();
 

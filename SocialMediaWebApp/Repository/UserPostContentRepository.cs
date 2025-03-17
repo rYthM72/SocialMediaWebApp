@@ -1,19 +1,25 @@
 ﻿using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SocialMediaWebApp.Data;
 using SocialMediaWebApp.Dtos.UserPostContent;
 using SocialMediaWebApp.Interfaces;
 using SocialMediaWebApp.Mappers;
 using SocialMediaWebApp.Models;
+using SocialMediaWebApp.Utilities;
 
 namespace SocialMediaWebApp.Repository
 {
     public class UserPostContentRepository : IUserPostContentRepository
     {
         private readonly ApplicationDbContext _context;
-        public UserPostContentRepository(ApplicationDbContext context)
+        private readonly IHttpContextAccessor _contextAccessor;
+        private readonly UserManager<SocialMediaUser> _userManager;
+        public UserPostContentRepository(ApplicationDbContext context, IHttpContextAccessor contextAccessor, UserManager<SocialMediaUser> userManager)
         {
             _context = context;
+            _contextAccessor = contextAccessor;
+            _userManager = userManager;
         }
 
         public async Task<List<UserPostContentDto>> GetAllPostsAsync()
@@ -22,6 +28,7 @@ namespace SocialMediaWebApp.Repository
             var postDto = posts.Select(s => s.ToUserPostContentDto()).ToList();
             return postDto;
         }
+
 
         public async Task<UserPostContentDto> GetPostByIdAsync(int id)
         {
@@ -36,9 +43,11 @@ namespace SocialMediaWebApp.Repository
 
         public async Task CreateUserPostContent(CreateUserPostContentDto postContent)
         {
-            UserPostContent content = new UserPostContent();
+            var createdBy = GeneralUtility.GetUsernameFromClaim(_contextAccessor);
+            var user = await _userManager.FindByNameAsync(createdBy);
             var posts = UserPostContentMapper.ToCreateUserPostContentDto(postContent);
-            content.CreatedOn = DateTime.Now;
+            posts.CreatedOn = DateTime.Now;
+            posts.CreatedById = user.Id;
             await _context.UserPostContents.AddAsync(posts);
             await _context.SaveChangesAsync();
         }

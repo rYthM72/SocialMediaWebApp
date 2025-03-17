@@ -33,16 +33,8 @@ namespace SocialMediaWebApp.Controllers
         [Route("{id}")]
         public async Task<IActionResult> GetPostById([FromRoute] int id)
         {
-            try
-            {
                 var posts = await _userPosts.GetPostByIdAsync(id);
                 return Ok(posts);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex.Message);
-                return BadRequest(ex.Message);
-            }
         }
 
         [HttpPost]

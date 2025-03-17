@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SocialMediaWebApp.Data;
 
@@ -11,9 +12,11 @@ using SocialMediaWebApp.Data;
 namespace SocialMediaWebApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250302061013_second")]
+    partial class second
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,13 +54,13 @@ namespace SocialMediaWebApp.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "465aeedd-20ca-4d7c-ad17-c32bd733a7d2",
+                            Id = "ebd7a7a2-1964-4d35-9e13-024baf9df17c",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "69d26eb7-826c-4b98-953f-40552e36c638",
+                            Id = "9f864505-e3f4-4c02-a9e5-fb20d874bd1d",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -195,24 +198,6 @@ namespace SocialMediaWebApp.Migrations
                     b.HasIndex("UserPostContentContentId");
 
                     b.ToTable("ContentComments");
-                });
-
-            modelBuilder.Entity("SocialMediaWebApp.Models.PostDownVote", b =>
-                {
-                    b.Property<int>("PostId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
-
-                    b.HasKey("PostId", "UserId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("PostDownVotes");
                 });
 
             modelBuilder.Entity("SocialMediaWebApp.Models.PostUpvote", b =>
@@ -414,25 +399,6 @@ namespace SocialMediaWebApp.Migrations
                         .HasForeignKey("UserPostContentContentId");
                 });
 
-            modelBuilder.Entity("SocialMediaWebApp.Models.PostDownVote", b =>
-                {
-                    b.HasOne("SocialMediaWebApp.Models.UserPostContent", "Content")
-                        .WithMany("DownVotes")
-                        .HasForeignKey("PostId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("SocialMediaWebApp.Models.SocialMediaUser", "User")
-                        .WithMany("DownVotes")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.Navigation("Content");
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("SocialMediaWebApp.Models.PostUpvote", b =>
                 {
                     b.HasOne("SocialMediaWebApp.Models.UserPostContent", "Content")
@@ -484,8 +450,6 @@ namespace SocialMediaWebApp.Migrations
 
             modelBuilder.Entity("SocialMediaWebApp.Models.SocialMediaUser", b =>
                 {
-                    b.Navigation("DownVotes");
-
                     b.Navigation("Upvotes");
 
                     b.Navigation("UserGroups");
@@ -496,8 +460,6 @@ namespace SocialMediaWebApp.Migrations
             modelBuilder.Entity("SocialMediaWebApp.Models.UserPostContent", b =>
                 {
                     b.Navigation("Comments");
-
-                    b.Navigation("DownVotes");
 
                     b.Navigation("Upvotes");
 

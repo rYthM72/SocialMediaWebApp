@@ -15,6 +15,6 @@ namespace SocialMediaWebApp.Models
         public UserPostContent Content { get; set; }
 
         public string? UserId { get; set; }
-        public SocialMediaUser User { get; set; }
+        public SocialMediaUser? User { get; set; }
     }
 }

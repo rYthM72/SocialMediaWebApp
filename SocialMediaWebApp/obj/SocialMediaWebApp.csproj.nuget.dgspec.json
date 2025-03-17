@@ -94,9 +94,13 @@
               "target": "Package",
               "version": "[8.0.0, )"
             },
-            "Serilog": {
+            "Serilog.AspNetCore": {
               "target": "Package",
-              "version": "[4.2.0, )"
+              "version": "[9.0.0, )"
+            },
+            "Serilog.Settings.Configuration": {
+              "target": "Package",
+              "version": "[9.0.0, )"
             },
             "Serilog.Sinks.Console": {
               "target": "Package",
