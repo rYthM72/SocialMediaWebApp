@@ -7,12 +7,11 @@
                         <div class="text-h6">Login</div>
                         <div class="text-subtitle2">Enter your credentials</div>
                     </q-card-section>
-
                     <q-card-section>
-                        <q-form @submit="handleLogin">
-                            <q-input filled v-model="username" label="Username" dense required />
-                            <q-input filled v-model="password" type="password" label="Password" dense required />
-                            <p>Don't have an account? <a href="src/pages/SigninPage.vue">Register Now!</a></p>
+                        <q-form @submit="onLogin">
+                            <q-input filled v-model="user.username" label="Username" dense required />
+                            <q-input filled v-model="user.password" type="password" label="Password" dense required />
+                            <p>Don't have an account? <a href="#">Register Now!</a></p>
                             <q-btn type="submit" color="primary" label="Login" class="q-mt-md full-width" />
                         </q-form>
                     </q-card-section>
@@ -23,32 +22,35 @@
 </template>
 
 <script setup>
-import { api } from 'src/boot/axios';
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
+import { useCounterStore } from 'stores/auth.js'
+import { useMeta } from 'quasar'
+
 
 const username = ref('');
 const password = ref('');
+const user = ref({
+    username: null,
+    password: null,
+})
 
-const handleLogin = async (e) => {
-    e.preventDefault();
-    try {
-        const response = await api.post('api/Account/login', {
-            username: username.value,
-            password: password.value,
-        });
+const store = useCounterStore();
 
-
-
-        if (response.data.token) {
-            // Assuming the API responds with a token
-            alert('Login successful!');
-            console.log('Token:', response.data.token);
-            // Store token (e.g., localStorage) or navigate to another page
-            localStorage.setItem('authToken', response.data.token);
-        }
-    } catch (error) {
-        console.error('Login failed:', error.response?.data || error.message);
-        alert('Invalid credentials, please try again.');
-    }
-};
+useMeta({
+  title: 'SEO.title',
+  meta: [
+    { name: 'description', content: 'asdadsaaaaaaaadddddddddddddddd' },
+    { property: 'og:title', content: 'hello' },
+    { property: 'og:description', content: 'safasadssssssssssssssssssssssssssssaaaaaaaaaaa' },
+    { property: 'og:image', content: 'https://cdn.quasar.dev/img/mountains.jpg' },
+    { property: 'og:url', content: 'www.inqr.com.np' },
+    { property: 'og:type', content: 'website' }
+  ]
+})
+async function onLogin() {
+    await store.loginStore({
+        username: user.value.username,
+        password: user.value.password,
+    });
+}
 </script>

@@ -3,16 +3,24 @@
   "WorkspaceRootPath": "G:\\Dotnet\\SocialMediaWebApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1E48A2C9-0810-4713-B294-F406C6C44812}|SocialMediaWebApp\\SocialMediaWebApp.csproj|g:\\dotnet\\socialmediawebapp\\socialmediawebapp\\interfaces\\ipostvoterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E48A2C9-0810-4713-B294-F406C6C44812}|SocialMediaWebApp\\SocialMediaWebApp.csproj|solutionrelative:socialmediawebapp\\interfaces\\ipostvoterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1E48A2C9-0810-4713-B294-F406C6C44812}|SocialMediaWebApp\\SocialMediaWebApp.csproj|g:\\dotnet\\socialmediawebapp\\socialmediawebapp\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E48A2C9-0810-4713-B294-F406C6C44812}|SocialMediaWebApp\\SocialMediaWebApp.csproj|solutionrelative:socialmediawebapp\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1E48A2C9-0810-4713-B294-F406C6C44812}|SocialMediaWebApp\\SocialMediaWebApp.csproj|g:\\dotnet\\socialmediawebapp\\socialmediawebapp\\repository\\postvoterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E48A2C9-0810-4713-B294-F406C6C44812}|SocialMediaWebApp\\SocialMediaWebApp.csproj|solutionrelative:socialmediawebapp\\repository\\postvoterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1E48A2C9-0810-4713-B294-F406C6C44812}|SocialMediaWebApp\\SocialMediaWebApp.csproj|g:\\dotnet\\socialmediawebapp\\socialmediawebapp\\entities\\socialmediauser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E48A2C9-0810-4713-B294-F406C6C44812}|SocialMediaWebApp\\SocialMediaWebApp.csproj|solutionrelative:socialmediawebapp\\entities\\socialmediauser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1E48A2C9-0810-4713-B294-F406C6C44812}|SocialMediaWebApp\\SocialMediaWebApp.csproj|g:\\dotnet\\socialmediawebapp\\socialmediawebapp\\models\\postupvote.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E48A2C9-0810-4713-B294-F406C6C44812}|SocialMediaWebApp\\SocialMediaWebApp.csproj|solutionrelative:socialmediawebapp\\models\\postupvote.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1E48A2C9-0810-4713-B294-F406C6C44812}|SocialMediaWebApp\\SocialMediaWebApp.csproj|g:\\dotnet\\socialmediawebapp\\socialmediawebapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E48A2C9-0810-4713-B294-F406C6C44812}|SocialMediaWebApp\\SocialMediaWebApp.csproj|solutionrelative:socialmediawebapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E48A2C9-0810-4713-B294-F406C6C44812}|SocialMediaWebApp\\SocialMediaWebApp.csproj|g:\\dotnet\\socialmediawebapp\\socialmediawebapp\\data\\entityconfiguration\\postcontentconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E48A2C9-0810-4713-B294-F406C6C44812}|SocialMediaWebApp\\SocialMediaWebApp.csproj|solutionrelative:socialmediawebapp\\data\\entityconfiguration\\postcontentconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E48A2C9-0810-4713-B294-F406C6C44812}|SocialMediaWebApp\\SocialMediaWebApp.csproj|g:\\dotnet\\socialmediawebapp\\socialmediawebapp\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E48A2C9-0810-4713-B294-F406C6C44812}|SocialMediaWebApp\\SocialMediaWebApp.csproj|solutionrelative:socialmediawebapp\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,51 +30,80 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "PostUpvote.cs",
-              "DocumentMoniker": "G:\\Dotnet\\SocialMediaWebApp\\SocialMediaWebApp\\Models\\PostUpvote.cs",
-              "RelativeDocumentMoniker": "SocialMediaWebApp\\Models\\PostUpvote.cs",
-              "ToolTip": "G:\\Dotnet\\SocialMediaWebApp\\SocialMediaWebApp\\Models\\PostUpvote.cs",
-              "RelativeToolTip": "SocialMediaWebApp\\Models\\PostUpvote.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA0AAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "PostContentConfiguration.cs",
+              "DocumentMoniker": "G:\\Dotnet\\SocialMediaWebApp\\SocialMediaWebApp\\Data\\EntityConfiguration\\PostContentConfiguration.cs",
+              "RelativeDocumentMoniker": "SocialMediaWebApp\\Data\\EntityConfiguration\\PostContentConfiguration.cs",
+              "ToolTip": "G:\\Dotnet\\SocialMediaWebApp\\SocialMediaWebApp\\Data\\EntityConfiguration\\PostContentConfiguration.cs",
+              "RelativeToolTip": "SocialMediaWebApp\\Data\\EntityConfiguration\\PostContentConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-16T06:01:18.332Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "IPostVoteRepository.cs",
-              "DocumentMoniker": "G:\\Dotnet\\SocialMediaWebApp\\SocialMediaWebApp\\Interfaces\\IPostVoteRepository.cs",
-              "RelativeDocumentMoniker": "SocialMediaWebApp\\Interfaces\\IPostVoteRepository.cs",
-              "ToolTip": "G:\\Dotnet\\SocialMediaWebApp\\SocialMediaWebApp\\Interfaces\\IPostVoteRepository.cs",
-              "RelativeToolTip": "SocialMediaWebApp\\Interfaces\\IPostVoteRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-17T08:19:12.835Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "PostVoteRepository.cs",
-              "DocumentMoniker": "G:\\Dotnet\\SocialMediaWebApp\\SocialMediaWebApp\\Repository\\PostVoteRepository.cs",
-              "RelativeDocumentMoniker": "SocialMediaWebApp\\Repository\\PostVoteRepository.cs",
-              "ToolTip": "G:\\Dotnet\\SocialMediaWebApp\\SocialMediaWebApp\\Repository\\PostVoteRepository.cs",
-              "RelativeToolTip": "SocialMediaWebApp\\Repository\\PostVoteRepository.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAqwDIAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-17T08:16:09.475Z",
+              "WhenOpened": "2025-06-16T16:28:49.072Z",
               "EditorCaption": ""
             },
             {
               "$type": "Bookmark",
               "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SocialMediaUser.cs",
+              "DocumentMoniker": "G:\\Dotnet\\SocialMediaWebApp\\SocialMediaWebApp\\Entities\\SocialMediaUser.cs",
+              "RelativeDocumentMoniker": "SocialMediaWebApp\\Entities\\SocialMediaUser.cs",
+              "ToolTip": "G:\\Dotnet\\SocialMediaWebApp\\SocialMediaWebApp\\Entities\\SocialMediaUser.cs",
+              "RelativeToolTip": "SocialMediaWebApp\\Entities\\SocialMediaUser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-16T16:22:02.065Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "G:\\Dotnet\\SocialMediaWebApp\\SocialMediaWebApp\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "SocialMediaWebApp\\Data\\ApplicationDbContext.cs",
+              "ToolTip": "G:\\Dotnet\\SocialMediaWebApp\\SocialMediaWebApp\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "SocialMediaWebApp\\Data\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwBQAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-16T16:21:40.624Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "G:\\Dotnet\\SocialMediaWebApp\\SocialMediaWebApp\\Program.cs",
+              "RelativeDocumentMoniker": "SocialMediaWebApp\\Program.cs",
+              "ToolTip": "G:\\Dotnet\\SocialMediaWebApp\\SocialMediaWebApp\\Program.cs",
+              "RelativeToolTip": "SocialMediaWebApp\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-16T16:08:48.729Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "G:\\Dotnet\\SocialMediaWebApp\\SocialMediaWebApp\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "SocialMediaWebApp\\Controllers\\AuthController.cs",
+              "ToolTip": "G:\\Dotnet\\SocialMediaWebApp\\SocialMediaWebApp\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "SocialMediaWebApp\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-16T16:08:37.988Z",
+              "EditorCaption": ""
             }
           ]
         }

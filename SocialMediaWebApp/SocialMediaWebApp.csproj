@@ -33,6 +33,8 @@
 
   <ItemGroup>
     <Folder Include="Logs\" />
+    <Folder Include="Mappers\" />
+    <Folder Include="Model\" />
   </ItemGroup>
 
 </Project>

@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http.HttpResults;
-using SocialMediaWebApp.Models;
+using SocialMediaWebApp.Entities;
 using System.Net;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 

@@ -1,15 +1,30 @@
 <template>
-  <q-page class="flex flex-center">
-    <img
-      alt="Quasar logo"
-      src="~assets/quasar-logo-vertical.svg"
-      style="width: 200px; height: 200px"
-    >
+  <q-page>
+    <div class="content-container">
+    </div>
   </q-page>
 </template>
-
 <script setup>
-defineOptions({
-  name: 'IndexPage'
+import { ref, onMounted } from 'vue';
+import { useMeta } from 'quasar'
+
+
+const posts = ref();
+useMeta({
+  title: 'SEO.title',
+  meta: [
+    { name: 'description', content: 'asdadsaaaaaaaadddddddddddddddd' },
+    { property: 'og:title', content: 'hello' },
+    { property: 'og:description', content: 'safasadssssssssssssssssssssssssssssaaaaaaaaaaa' },
+    { property: 'og:image', content: 'https://cdn.quasar.dev/img/mountains.jpg' },
+    { property: 'og:url', content: 'www.inqr.com.np' },
+    { property: 'og:type', content: 'website' }
+  ]
+})
+onMounted(async () => {
+  const response = await api.get("contentpost/list");
+  posts.value = response.data;
+
 });
 </script>
+<style scoped src="../css/indexPage.css"></style>

@@ -46,9 +46,11 @@ const handleSignUp = async (e) => {
         console.log('Response:', response.data);
 
         // Optionally, redirect to login page or clear the form
-        email.value = '';
-        username.value = '';
-        password.value = '';
+        email.value = null;
+        username.value = null;
+        password.value = null;
+
+
     } catch (error) {
         console.error('Signup failed:', error.response?.data || error.message);
         alert('Signup failed. Please try again.');
