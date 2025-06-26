@@ -36,17 +36,6 @@ const user = ref({
 
 const store = useCounterStore();
 
-useMeta({
-  title: 'SEO.title',
-  meta: [
-    { name: 'description', content: 'asdadsaaaaaaaadddddddddddddddd' },
-    { property: 'og:title', content: 'hello' },
-    { property: 'og:description', content: 'safasadssssssssssssssssssssssssssssaaaaaaaaaaa' },
-    { property: 'og:image', content: 'https://cdn.quasar.dev/img/mountains.jpg' },
-    { property: 'og:url', content: 'www.inqr.com.np' },
-    { property: 'og:type', content: 'website' }
-  ]
-})
 async function onLogin() {
     await store.loginStore({
         username: user.value.username,
