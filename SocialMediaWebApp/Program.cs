@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Serilog;
+using SocialMediaWebApp;
 using SocialMediaWebApp.Data;
 using SocialMediaWebApp.Entities;
 using SocialMediaWebApp.GlobalException;
@@ -25,8 +26,8 @@ builder.Services.AddCors(options =>
               .AllowCredentials(); // Optional, if you're using cookies or auth headers
     });
 });
-
-
+//using dependency injection extension method
+builder.Services.AddApplicationServices();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

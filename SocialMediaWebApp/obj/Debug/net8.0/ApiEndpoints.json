@@ -1,14 +1,14 @@
 [
   {
-    "ContainingType": "SocialMediaWebApp.Controllers.AccountController",
+    "ContainingType": "SocialMediaWebApp.Controllers.AuthController",
     "Method": "Login",
-    "RelativePath": "api/Account/login",
+    "RelativePath": "api/Auth/login",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "loginDto",
+        "Name": "model",
         "Type": "SocialMediaWebApp.Dtos.Account.LoginDto",
         "IsRequired": true
       }
@@ -16,215 +16,19 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "SocialMediaWebApp.Controllers.AccountController",
-    "Method": "Register",
-    "RelativePath": "api/Account/register",
+    "ContainingType": "SocialMediaWebApp.Controllers.AuthController",
+    "Method": "RegisterUser",
+    "RelativePath": "api/Auth/user-register",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "registerDto",
-        "Type": "SocialMediaWebApp.Dtos.Account.RegisterDto",
+        "Name": "registerModel",
+        "Type": "SocialMediaWebApp.Model.RegisterModel",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "SocialMediaWebApp.Controllers.UserPostContentController",
-    "Method": "GetPostById",
-    "RelativePath": "api/contentpost/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "SocialMediaWebApp.Controllers.UserPostContentController",
-    "Method": "PostUserContent",
-    "RelativePath": "api/contentpost/create",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "createUserPost",
-        "Type": "SocialMediaWebApp.Dtos.UserPostContent.CreateUserPostContentDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "SocialMediaWebApp.Controllers.UserPostContentController",
-    "Method": "DeleteUserContent",
-    "RelativePath": "api/contentpost/delete/{id}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "SocialMediaWebApp.Controllers.UserPostContentController",
-    "Method": "GetAllPosts",
-    "RelativePath": "api/contentpost/list",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "SocialMediaWebApp.Controllers.UserPostContentController",
-    "Method": "UpdateUserContent",
-    "RelativePath": "api/contentpost/update",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "updateUserPost",
-        "Type": "SocialMediaWebApp.Dtos.UserPostContent.UpdateUserPostContentDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "SocialMediaWebApp.Controllers.PostVoteController",
-    "Method": "Downvote",
-    "RelativePath": "api/PostVote/downvote",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "postId",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "SocialMediaWebApp.Controllers.PostVoteController",
-    "Method": "Upvote",
-    "RelativePath": "api/PostVote/upvote",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "postId",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "SocialMediaWebApp.Controllers.PostVoteController",
-    "Method": "GetVote",
-    "RelativePath": "api/PostVote/votecount",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "postId",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "SocialMediaWebApp.Controllers.UserGroupController",
-    "Method": "GetById",
-    "RelativePath": "api/UserGroup/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "SocialMediaWebApp.Controllers.UserGroupController",
-    "Method": "Create",
-    "RelativePath": "api/UserGroup/create",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "groupDetailsDto",
-        "Type": "SocialMediaWebApp.Dtos.UserGroup.GroupCreateDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "SocialMediaWebApp.Controllers.UserGroupController",
-    "Method": "Delete",
-    "RelativePath": "api/UserGroup/delete/{id}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "SocialMediaWebApp.Controllers.UserGroupController",
-    "Method": "Update",
-    "RelativePath": "api/UserGroup/edit",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "groupDetailsDto",
-        "Type": "SocialMediaWebApp.Dtos.UserGroup.GroupUpdateDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "SocialMediaWebApp.Controllers.UserGroupController",
-    "Method": "GetAll",
-    "RelativePath": "api/UserGroup/list",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
     "ReturnTypes": []
   }
 ]

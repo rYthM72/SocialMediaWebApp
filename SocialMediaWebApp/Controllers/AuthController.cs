@@ -19,6 +19,7 @@ namespace SocialMediaWebApp.Controllers
             _configuration = configuration;
         }
         [HttpPost, Route("user-register")]
+        [AllowAnonymous]
         public async Task<IActionResult> RegisterUser(RegisterModel registerModel)
         {
             await _authRepository.RegisterUser(registerModel);

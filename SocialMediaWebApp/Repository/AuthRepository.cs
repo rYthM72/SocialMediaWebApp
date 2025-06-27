@@ -36,8 +36,8 @@ namespace SocialMediaWebApp.Repository
             {
                 throw new Exception("Password and Confirm Password donot match");
             }
-            var user = await GetUserByUsername(registerModel.Username);
-            if (user is null)
+            var user = await GetUserByUsername(registerModel.EmailAddress);
+            if (user != null)
             {
                 throw new Exception("Another user with this username already exists");
             }

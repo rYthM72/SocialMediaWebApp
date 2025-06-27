@@ -3,8 +3,28 @@
   "WorkspaceRootPath": "G:\\Dotnet\\SocialMediaWebApp\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{1E48A2C9-0810-4713-B294-F406C6C44812}|SocialMediaWebApp\\SocialMediaWebApp.csproj|g:\\dotnet\\socialmediawebapp\\socialmediawebapp\\repository\\authrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E48A2C9-0810-4713-B294-F406C6C44812}|SocialMediaWebApp\\SocialMediaWebApp.csproj|solutionrelative:socialmediawebapp\\repository\\authrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{1E48A2C9-0810-4713-B294-F406C6C44812}|SocialMediaWebApp\\SocialMediaWebApp.csproj|g:\\dotnet\\socialmediawebapp\\socialmediawebapp\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1E48A2C9-0810-4713-B294-F406C6C44812}|SocialMediaWebApp\\SocialMediaWebApp.csproj|solutionrelative:socialmediawebapp\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E48A2C9-0810-4713-B294-F406C6C44812}|SocialMediaWebApp\\SocialMediaWebApp.csproj|g:\\dotnet\\socialmediawebapp\\socialmediawebapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E48A2C9-0810-4713-B294-F406C6C44812}|SocialMediaWebApp\\SocialMediaWebApp.csproj|solutionrelative:socialmediawebapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E48A2C9-0810-4713-B294-F406C6C44812}|SocialMediaWebApp\\SocialMediaWebApp.csproj|g:\\dotnet\\socialmediawebapp\\socialmediawebapp\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E48A2C9-0810-4713-B294-F406C6C44812}|SocialMediaWebApp\\SocialMediaWebApp.csproj|solutionrelative:socialmediawebapp\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|G:\\Dotnet\\SocialMediaWebApp\\SocialMediaWebApp\\Migrations\\20250626181118_asdasd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SocialMediaWebApp\\Migrations\\20250626181118_asdasd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E48A2C9-0810-4713-B294-F406C6C44812}|SocialMediaWebApp\\SocialMediaWebApp.csproj|g:\\dotnet\\socialmediawebapp\\socialmediawebapp\\servicecollectionsextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E48A2C9-0810-4713-B294-F406C6C44812}|SocialMediaWebApp\\SocialMediaWebApp.csproj|solutionrelative:socialmediawebapp\\servicecollectionsextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1E48A2C9-0810-4713-B294-F406C6C44812}|SocialMediaWebApp\\SocialMediaWebApp.csproj|g:\\dotnet\\socialmediawebapp\\socialmediawebapp\\model\\registermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -22,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,39 +58,104 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "AuthRepository.cs",
+              "DocumentMoniker": "G:\\Dotnet\\SocialMediaWebApp\\SocialMediaWebApp\\Repository\\AuthRepository.cs",
+              "RelativeDocumentMoniker": "SocialMediaWebApp\\Repository\\AuthRepository.cs",
+              "ToolTip": "G:\\Dotnet\\SocialMediaWebApp\\SocialMediaWebApp\\Repository\\AuthRepository.cs",
+              "RelativeToolTip": "SocialMediaWebApp\\Repository\\AuthRepository.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAUwCcAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T18:18:36.818Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "G:\\Dotnet\\SocialMediaWebApp\\SocialMediaWebApp\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "SocialMediaWebApp\\Data\\ApplicationDbContext.cs",
+              "ToolTip": "G:\\Dotnet\\SocialMediaWebApp\\SocialMediaWebApp\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "SocialMediaWebApp\\Data\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T18:11:53.789Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "20250626181118_asdasd.cs",
+              "DocumentMoniker": "G:\\Dotnet\\SocialMediaWebApp\\SocialMediaWebApp\\Migrations\\20250626181118_asdasd.cs",
+              "RelativeDocumentMoniker": "SocialMediaWebApp\\Migrations\\20250626181118_asdasd.cs",
+              "ToolTip": "G:\\Dotnet\\SocialMediaWebApp\\SocialMediaWebApp\\Migrations\\20250626181118_asdasd.cs",
+              "RelativeToolTip": "SocialMediaWebApp\\Migrations\\20250626181118_asdasd.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T18:11:18.387Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ServiceCollectionsExtensions.cs",
+              "DocumentMoniker": "G:\\Dotnet\\SocialMediaWebApp\\SocialMediaWebApp\\ServiceCollectionsExtensions.cs",
+              "RelativeDocumentMoniker": "SocialMediaWebApp\\ServiceCollectionsExtensions.cs",
+              "ToolTip": "G:\\Dotnet\\SocialMediaWebApp\\SocialMediaWebApp\\ServiceCollectionsExtensions.cs",
+              "RelativeToolTip": "SocialMediaWebApp\\ServiceCollectionsExtensions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T17:49:06.933Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "G:\\Dotnet\\SocialMediaWebApp\\SocialMediaWebApp\\Program.cs",
+              "RelativeDocumentMoniker": "SocialMediaWebApp\\Program.cs",
+              "ToolTip": "G:\\Dotnet\\SocialMediaWebApp\\SocialMediaWebApp\\Program.cs",
+              "RelativeToolTip": "SocialMediaWebApp\\Program.cs",
+              "ViewState": "AgIAAEAAAAAAAAAAAAAAAEUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T17:45:42.46Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "RegisterModel.cs",
               "DocumentMoniker": "G:\\Dotnet\\SocialMediaWebApp\\SocialMediaWebApp\\Model\\RegisterModel.cs",
               "RelativeDocumentMoniker": "SocialMediaWebApp\\Model\\RegisterModel.cs",
               "ToolTip": "G:\\Dotnet\\SocialMediaWebApp\\SocialMediaWebApp\\Model\\RegisterModel.cs",
               "RelativeToolTip": "SocialMediaWebApp\\Model\\RegisterModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-26T15:58:02.033Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "LoginDto.cs",
               "DocumentMoniker": "G:\\Dotnet\\SocialMediaWebApp\\SocialMediaWebApp\\Dtos\\Account\\LoginDto.cs",
               "RelativeDocumentMoniker": "SocialMediaWebApp\\Dtos\\Account\\LoginDto.cs",
               "ToolTip": "G:\\Dotnet\\SocialMediaWebApp\\SocialMediaWebApp\\Dtos\\Account\\LoginDto.cs",
               "RelativeToolTip": "SocialMediaWebApp\\Dtos\\Account\\LoginDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-26T15:47:49.179Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "AuthController.cs",
               "DocumentMoniker": "G:\\Dotnet\\SocialMediaWebApp\\SocialMediaWebApp\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "SocialMediaWebApp\\Controllers\\AuthController.cs",
               "ToolTip": "G:\\Dotnet\\SocialMediaWebApp\\SocialMediaWebApp\\Controllers\\AuthController.cs",
               "RelativeToolTip": "SocialMediaWebApp\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAmwCEAAAAyAAAAAAAAAA==",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAxwBgAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-26T15:31:51.837Z",
               "EditorCaption": ""
